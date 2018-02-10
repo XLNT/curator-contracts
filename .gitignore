@@ -37,6 +37,3 @@ dist
 
 .idea
 .env
-
-# Truffle build directory
-build

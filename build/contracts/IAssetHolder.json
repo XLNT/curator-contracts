@@ -1,0 +1,299 @@
+{
+  "contractName": "IAssetHolder",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_assetId",
+          "type": "uint256"
+        },
+        {
+          "name": "_previousHolder",
+          "type": "address"
+        },
+        {
+          "name": "_currentHolder",
+          "type": "address"
+        },
+        {
+          "name": "_userData",
+          "type": "bytes"
+        },
+        {
+          "name": "_operator",
+          "type": "address"
+        },
+        {
+          "name": "_operatorData",
+          "type": "bytes"
+        }
+      ],
+      "name": "onAssetReceived",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\ninterface IAssetHolder {\n  function onAssetReceived(\n    /* address _assetRegistry == msg.sender */\n    uint256 _assetId,\n    address _previousHolder,\n    address _currentHolder,\n    bytes   _userData,\n    address _operator,\n    bytes   _operatorData\n  ) public;\n}\n",
+  "sourcePath": "/Users/pfh/work/xlnt/curator/contracts/IAssetHolder.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/pfh/work/xlnt/curator/contracts/IAssetHolder.sol",
+      "exportedSymbols": {
+        "IAssetHolder": [
+          151
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 135,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            151
+          ],
+          "name": "IAssetHolder",
+          "scope": 152
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "onAssetReceived",
+              "payable": false,
+              "scope": 151,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_assetId",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 136,
+                        "name": "ElementaryTypeName",
+                        "src": "130:7:2"
+                      }
+                    ],
+                    "id": 137,
+                    "name": "VariableDeclaration",
+                    "src": "130:16:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_previousHolder",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 138,
+                        "name": "ElementaryTypeName",
+                        "src": "152:7:2"
+                      }
+                    ],
+                    "id": 139,
+                    "name": "VariableDeclaration",
+                    "src": "152:23:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_currentHolder",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 140,
+                        "name": "ElementaryTypeName",
+                        "src": "181:7:2"
+                      }
+                    ],
+                    "id": 141,
+                    "name": "VariableDeclaration",
+                    "src": "181:22:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_userData",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 142,
+                        "name": "ElementaryTypeName",
+                        "src": "209:5:2"
+                      }
+                    ],
+                    "id": 143,
+                    "name": "VariableDeclaration",
+                    "src": "209:17:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_operator",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 144,
+                        "name": "ElementaryTypeName",
+                        "src": "232:7:2"
+                      }
+                    ],
+                    "id": 145,
+                    "name": "VariableDeclaration",
+                    "src": "232:17:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_operatorData",
+                      "scope": 150,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 146,
+                        "name": "ElementaryTypeName",
+                        "src": "255:5:2"
+                      }
+                    ],
+                    "id": 147,
+                    "name": "VariableDeclaration",
+                    "src": "255:21:2"
+                  }
+                ],
+                "id": 148,
+                "name": "ParameterList",
+                "src": "77:203:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 149,
+                "name": "ParameterList",
+                "src": "287:0:2"
+              }
+            ],
+            "id": 150,
+            "name": "FunctionDefinition",
+            "src": "53:235:2"
+          }
+        ],
+        "id": 151,
+        "name": "ContractDefinition",
+        "src": "26:264:2"
+      }
+    ],
+    "id": 152,
+    "name": "SourceUnit",
+    "src": "0:291:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-10T03:19:42.017Z"
+}

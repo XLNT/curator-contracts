@@ -1,0 +1,944 @@
+{
+  "contractName": "EIP820Implementer",
+  "abi": [],
+  "bytecode": "0x6060604052739aa513f1294c8f1b254ba1188991b4cc2efe1d3b6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055503415606257600080fd5b603580606f6000396000f3006060604052600080fd00a165627a7a723058202faa686efd430cdb8e37da48f2c1326e2391f3b7300bc1b7e2fd77b9e9ce97be0029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a723058202faa686efd430cdb8e37da48f2c1326e2391f3b7300bc1b7e2fd77b9e9ce97be0029",
+  "sourceMap": "59:690:6:-;;;139:42;92:90;;;;;;;;;;;;;;;;;;;;59:690;;;;;;;;;;;;;;",
+  "deployedSourceMap": "59:690:6:-;;;;;",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"./EIP820Registry.sol\";\n\n\ncontract EIP820Implementer {\n    EIP820Registry eip820Registry = EIP820Registry(0x9aA513f1294c8f1B254bA1188991B4cc2EFE1D3B);\n\n    function setInterfaceImplementation(string ifaceLabel, address impl) internal {\n        bytes32 ifaceHash = keccak256(ifaceLabel);\n        eip820Registry.setInterfaceImplementer(this, ifaceHash, impl);\n    }\n\n    function interfaceAddr(address addr, string ifaceLabel) internal constant returns(address) {\n        bytes32 ifaceHash = keccak256(ifaceLabel);\n        return eip820Registry.getInterfaceImplementer(addr, ifaceHash);\n    }\n\n    function delegateManagement(address newManager) internal {\n        eip820Registry.setManager(this, newManager);\n    }\n\n}\n",
+  "sourcePath": "eip820/contracts/EIP820Implementer.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "eip820/contracts/EIP820Implementer.sol",
+      "exportedSymbols": {
+        "EIP820Implementer": [
+          1475
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 1411,
+        "name": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1654,
+          "absolutePath": "eip820/contracts/EIP820Registry.sol",
+          "file": "./EIP820Registry.sol",
+          "scope": 1476,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1412,
+        "name": "ImportDirective",
+        "src": "26:30:6"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1475
+          ],
+          "name": "EIP820Implementer",
+          "scope": 1476
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "eip820Registry",
+              "scope": 1475,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract EIP820Registry",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "EIP820Registry",
+                  "referencedDeclaration": 1653,
+                  "type": "contract EIP820Registry"
+                },
+                "id": 1413,
+                "name": "UserDefinedTypeName",
+                "src": "92:14:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "isStructConstructorCall": false,
+                  "lValueRequested": false,
+                  "names": [
+                    null
+                  ],
+                  "type": "contract EIP820Registry",
+                  "type_conversion": true
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1653,
+                      "type": "type(contract EIP820Registry)",
+                      "value": "EIP820Registry"
+                    },
+                    "id": 1414,
+                    "name": "Identifier",
+                    "src": "124:14:6"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "hexvalue": "307839614135313366313239346338663142323534624131313838393931423463633245464531443342",
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "subdenomination": null,
+                      "token": "number",
+                      "type": "address",
+                      "value": "0x9aA513f1294c8f1B254bA1188991B4cc2EFE1D3B"
+                    },
+                    "id": 1415,
+                    "name": "Literal",
+                    "src": "139:42:6"
+                  }
+                ],
+                "id": 1416,
+                "name": "FunctionCall",
+                "src": "124:58:6"
+              }
+            ],
+            "id": 1417,
+            "name": "VariableDeclaration",
+            "src": "92:90:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "setInterfaceImplementation",
+              "payable": false,
+              "scope": 1475,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ifaceLabel",
+                      "scope": 1439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 1418,
+                        "name": "ElementaryTypeName",
+                        "src": "225:6:6"
+                      }
+                    ],
+                    "id": 1419,
+                    "name": "VariableDeclaration",
+                    "src": "225:17:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "impl",
+                      "scope": 1439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 1420,
+                        "name": "ElementaryTypeName",
+                        "src": "244:7:6"
+                      }
+                    ],
+                    "id": 1421,
+                    "name": "VariableDeclaration",
+                    "src": "244:12:6"
+                  }
+                ],
+                "id": 1422,
+                "name": "ParameterList",
+                "src": "224:33:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1423,
+                "name": "ParameterList",
+                "src": "267:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        1425
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "ifaceHash",
+                          "scope": 1439,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bytes32",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 1424,
+                            "name": "ElementaryTypeName",
+                            "src": "277:7:6"
+                          }
+                        ],
+                        "id": 1425,
+                        "name": "VariableDeclaration",
+                        "src": "277:17:6"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes32",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1757,
+                              "type": "function () pure returns (bytes32)",
+                              "value": "keccak256"
+                            },
+                            "id": 1426,
+                            "name": "Identifier",
+                            "src": "297:9:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1419,
+                              "type": "string memory",
+                              "value": "ifaceLabel"
+                            },
+                            "id": 1427,
+                            "name": "Identifier",
+                            "src": "307:10:6"
+                          }
+                        ],
+                        "id": 1428,
+                        "name": "FunctionCall",
+                        "src": "297:21:6"
+                      }
+                    ],
+                    "id": 1429,
+                    "name": "VariableDeclarationStatement",
+                    "src": "277:41:6"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_EIP820Implementer_$1475",
+                                  "typeString": "contract EIP820Implementer"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "setInterfaceImplementer",
+                              "referencedDeclaration": 1638,
+                              "type": "function (address,bytes32,address) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1417,
+                                  "type": "contract EIP820Registry",
+                                  "value": "eip820Registry"
+                                },
+                                "id": 1430,
+                                "name": "Identifier",
+                                "src": "328:14:6"
+                              }
+                            ],
+                            "id": 1432,
+                            "name": "MemberAccess",
+                            "src": "328:38:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1782,
+                              "type": "contract EIP820Implementer",
+                              "value": "this"
+                            },
+                            "id": 1433,
+                            "name": "Identifier",
+                            "src": "367:4:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1425,
+                              "type": "bytes32",
+                              "value": "ifaceHash"
+                            },
+                            "id": 1434,
+                            "name": "Identifier",
+                            "src": "373:9:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1421,
+                              "type": "address",
+                              "value": "impl"
+                            },
+                            "id": 1435,
+                            "name": "Identifier",
+                            "src": "384:4:6"
+                          }
+                        ],
+                        "id": 1436,
+                        "name": "FunctionCall",
+                        "src": "328:61:6"
+                      }
+                    ],
+                    "id": 1437,
+                    "name": "ExpressionStatement",
+                    "src": "328:61:6"
+                  }
+                ],
+                "id": 1438,
+                "name": "Block",
+                "src": "267:129:6"
+              }
+            ],
+            "id": 1439,
+            "name": "FunctionDefinition",
+            "src": "189:207:6"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "interfaceAddr",
+              "payable": false,
+              "scope": 1475,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "addr",
+                      "scope": 1461,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 1440,
+                        "name": "ElementaryTypeName",
+                        "src": "425:7:6"
+                      }
+                    ],
+                    "id": 1441,
+                    "name": "VariableDeclaration",
+                    "src": "425:12:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ifaceLabel",
+                      "scope": 1461,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 1442,
+                        "name": "ElementaryTypeName",
+                        "src": "439:6:6"
+                      }
+                    ],
+                    "id": 1443,
+                    "name": "VariableDeclaration",
+                    "src": "439:17:6"
+                  }
+                ],
+                "id": 1444,
+                "name": "ParameterList",
+                "src": "424:33:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 1461,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 1445,
+                        "name": "ElementaryTypeName",
+                        "src": "484:7:6"
+                      }
+                    ],
+                    "id": 1446,
+                    "name": "VariableDeclaration",
+                    "src": "484:7:6"
+                  }
+                ],
+                "id": 1447,
+                "name": "ParameterList",
+                "src": "483:9:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        1449
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "ifaceHash",
+                          "scope": 1461,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bytes32",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 1448,
+                            "name": "ElementaryTypeName",
+                            "src": "503:7:6"
+                          }
+                        ],
+                        "id": 1449,
+                        "name": "VariableDeclaration",
+                        "src": "503:17:6"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes32",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1757,
+                              "type": "function () pure returns (bytes32)",
+                              "value": "keccak256"
+                            },
+                            "id": 1450,
+                            "name": "Identifier",
+                            "src": "523:9:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1443,
+                              "type": "string memory",
+                              "value": "ifaceLabel"
+                            },
+                            "id": 1451,
+                            "name": "Identifier",
+                            "src": "533:10:6"
+                          }
+                        ],
+                        "id": 1452,
+                        "name": "FunctionCall",
+                        "src": "523:21:6"
+                      }
+                    ],
+                    "id": 1453,
+                    "name": "VariableDeclarationStatement",
+                    "src": "503:41:6"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 1447
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "address",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "getInterfaceImplementer",
+                              "referencedDeclaration": 1589,
+                              "type": "function (address,bytes32) view external returns (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1417,
+                                  "type": "contract EIP820Registry",
+                                  "value": "eip820Registry"
+                                },
+                                "id": 1454,
+                                "name": "Identifier",
+                                "src": "561:14:6"
+                              }
+                            ],
+                            "id": 1455,
+                            "name": "MemberAccess",
+                            "src": "561:38:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1441,
+                              "type": "address",
+                              "value": "addr"
+                            },
+                            "id": 1456,
+                            "name": "Identifier",
+                            "src": "600:4:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1449,
+                              "type": "bytes32",
+                              "value": "ifaceHash"
+                            },
+                            "id": 1457,
+                            "name": "Identifier",
+                            "src": "606:9:6"
+                          }
+                        ],
+                        "id": 1458,
+                        "name": "FunctionCall",
+                        "src": "561:55:6"
+                      }
+                    ],
+                    "id": 1459,
+                    "name": "Return",
+                    "src": "554:62:6"
+                  }
+                ],
+                "id": 1460,
+                "name": "Block",
+                "src": "493:130:6"
+              }
+            ],
+            "id": 1461,
+            "name": "FunctionDefinition",
+            "src": "402:221:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "delegateManagement",
+              "payable": false,
+              "scope": 1475,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "newManager",
+                      "scope": 1474,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 1462,
+                        "name": "ElementaryTypeName",
+                        "src": "657:7:6"
+                      }
+                    ],
+                    "id": 1463,
+                    "name": "VariableDeclaration",
+                    "src": "657:18:6"
+                  }
+                ],
+                "id": 1464,
+                "name": "ParameterList",
+                "src": "656:20:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1465,
+                "name": "ParameterList",
+                "src": "686:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_EIP820Implementer_$1475",
+                                  "typeString": "contract EIP820Implementer"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "setManager",
+                              "referencedDeclaration": 1573,
+                              "type": "function (address,address) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1417,
+                                  "type": "contract EIP820Registry",
+                                  "value": "eip820Registry"
+                                },
+                                "id": 1466,
+                                "name": "Identifier",
+                                "src": "696:14:6"
+                              }
+                            ],
+                            "id": 1468,
+                            "name": "MemberAccess",
+                            "src": "696:25:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1782,
+                              "type": "contract EIP820Implementer",
+                              "value": "this"
+                            },
+                            "id": 1469,
+                            "name": "Identifier",
+                            "src": "722:4:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1463,
+                              "type": "address",
+                              "value": "newManager"
+                            },
+                            "id": 1470,
+                            "name": "Identifier",
+                            "src": "728:10:6"
+                          }
+                        ],
+                        "id": 1471,
+                        "name": "FunctionCall",
+                        "src": "696:43:6"
+                      }
+                    ],
+                    "id": 1472,
+                    "name": "ExpressionStatement",
+                    "src": "696:43:6"
+                  }
+                ],
+                "id": 1473,
+                "name": "Block",
+                "src": "686:60:6"
+              }
+            ],
+            "id": 1474,
+            "name": "FunctionDefinition",
+            "src": "629:117:6"
+          }
+        ],
+        "id": 1475,
+        "name": "ContractDefinition",
+        "src": "59:690:6"
+      }
+    ],
+    "id": 1476,
+    "name": "SourceUnit",
+    "src": "0:750:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-10T03:19:42.020Z"
+}
