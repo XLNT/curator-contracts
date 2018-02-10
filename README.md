@@ -1,0 +1,31 @@
+# curator
+
+An ERC 821-compliant smart contract for digital art.
+
+### Getting started
+
+Install packages (I prefer using [yarn](https://yarnpkg.com/en/))
+
+```
+yarn
+```
+
+Start a local blockchain like [Ganache](https://github.com/trufflesuite/ganache). You can use [Ganache CLI](https://github.com/trufflesuite/ganache-cli) or the [desktop client](http://truffleframework.com/ganache/).
+
+```
+ganache-cli
+```
+
+Add an `.env` file depending on which port ganache is running on and which port you want your server running on.
+
+```
+// .env
+RPC_HOST="127.0.0.1"
+RPC_PORT=8545
+```
+
+Compile and migrate your local smart contracts.
+
+```
+truffle migrate --reset
+```
